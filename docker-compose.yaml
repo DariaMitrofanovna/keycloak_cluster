@@ -1,0 +1,89 @@
+version: "3.8"
+
+services:
+
+  multiotp:
+    container_name: multiotp
+    build:
+      context: multi_otp/.
+      dockerfile: dockerfile
+    volumes:
+      - ./volumes/data:/etc/multiotp
+      - ./volumes/freeradius:/etc/freeradius
+      - ./volumes/log/multiotp:/var/log/multiotp
+      - ./volumes/log/freeradius:/var/log/freeradius
+    expose:
+      - 443
+    ports:
+      - "9080:80"
+      - "10443:443"
+
+  postgres:
+    container_name: postgres
+    image: postgres:15.0
+    environment:
+      POSTGRES_PASSWORD: postgres
+    expose:
+      - 5432
+    ports:
+      - "5432:5432"
+
+  keycloak_1:
+    container_name: keycloak_1
+    build:
+      context: keycloak/.
+      dockerfile: dockerfile
+    command: start-dev
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/postgres
+      KC_DB_URL_HOST: postgres
+      KC_DB_URL_DATABASE: postgres
+      KC_DB_USERNAME: postgres
+      KC_DB_PASSWORD: postgres
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_PROXY: edge
+      KC_HOSTNAME_STRICT: "false"
+      JGROUPS_DISCOVERY_EXTERNAL_IP: keycloak_1
+      KC_CACHE_CONFIG_FILE: cache.xml
+    volumes:
+      - ./keycloak/cache.xml:/opt/keycloak/conf/cache.xml
+    expose:
+      - 8080
+    ports:
+      - "8082:8080"
+
+  keycloak_2:
+    container_name: keycloak_2
+    build:
+      context: keycloak/.
+      dockerfile: dockerfile
+    command: start-dev
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/postgres
+      KC_DB_URL_HOST: postgres
+      KC_DB_URL_DATABASE: postgres
+      KC_DB_USERNAME: postgres
+      KC_DB_PASSWORD: postgres
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_PROXY: edge
+      KC_HOSTNAME_STRICT: "false"
+      JGROUPS_DISCOVERY_EXTERNAL_IP: keycloak_2
+      KC_CACHE_CONFIG_FILE: cache.xml
+    volumes:
+      - ./keycloak/cache.xml:/opt/keycloak/conf/cache.xml
+    expose:
+      - 8080
+    ports:
+      - "8083:8080"
+
+
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "8000:8000"

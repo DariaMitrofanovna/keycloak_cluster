@@ -1,0 +1,2 @@
+FROM multiotp/multiotp-open-source:5.9.6.1
+COPY php/index.php /usr/local/bin/multiotp/index.php

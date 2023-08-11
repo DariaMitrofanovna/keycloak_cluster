@@ -1,0 +1,708 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
+* {
+  outline: none !important;
+}
+
+body {
+  background: #f2f3f6 !important;
+  overflow-x: hidden;
+}
+
+.login-pf body {
+  min-height: 100vh;
+  overflow-x: auto;
+  min-width: 1280px;
+}
+
+.alert-error {
+  background-color: #fff;
+  border-color: #c00;
+  color: #333;
+}
+
+#kc-locale ul {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  list-style: none;
+  right: 0;
+  top: 20px;
+  min-width: 100px;
+  padding: 2px 0;
+  border: solid 1px #bbb;
+}
+
+#kc-locale:hover ul {
+  display: block;
+  margin: 0;
+}
+
+#kc-locale ul li a {
+  display: block;
+  padding: 5px 14px;
+  color: #000 !important;
+  text-decoration: none;
+  line-height: 20px;
+}
+
+#kc-locale ul li a:hover {
+  color: #4d5258;
+  background-color: #d4edfa;
+}
+
+#kc-locale-dropdown a {
+  color: #4d5258;
+  background: 0 0;
+  padding: 0 15px 0 0;
+  font-weight: 300;
+}
+
+#kc-locale-dropdown a:hover {
+  text-decoration: none;
+}
+
+a#kc-current-locale-link {
+  display: block;
+  padding: 0 5px;
+}
+
+a#kc-current-locale-link::after {
+  content: "\2c5";
+  margin-left: 4px;
+}
+
+.login-pf .container {
+  padding-top: 40px;
+}
+
+.login-pf a:hover {
+  color: #0099d3;
+}
+
+#kc-logo {
+  width: 100%;
+}
+
+#kc-logo-wrapper {
+  background-image: url(../img/keycloak-logo.png);
+  background-repeat: no-repeat;
+  height: 63px;
+  width: 300px;
+  margin: 62px auto 0;
+}
+
+div.kc-logo-text {
+  background-image: url(../img/keycloak-logo-text.png);
+  background-repeat: no-repeat;
+  height: 63px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+div.kc-logo-text span {
+  display: none;
+}
+
+#kc-header {
+  color: #ededed;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+#kc-header-wrapper {
+  font-size: 29px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 1.2em;
+  padding: 62px 10px 20px;
+  white-space: normal;
+}
+
+#kc-content {
+  width: 100%;
+}
+
+#kc-attempted-username {
+  font-size: 20px;
+  font-family: inherit;
+  font-weight: normal;
+  padding-right: 10px;
+}
+
+#kc-username {
+  text-align: center;
+}
+
+#kc-webauthn-settings-form {
+  padding-top: 8px;
+}
+
+/* #kc-content-wrapper {
+    overflow-y: hidden;
+} */
+
+#kc-info {
+  padding-bottom: 200px;
+  margin-bottom: -200px;
+}
+
+#kc-info-wrapper {
+  font-size: 13px;
+}
+
+#kc-form-options span {
+  margin: 15px 0;
+  display: block;
+}
+
+.login-pf-page .login-pf-signup {
+  margin: 0;
+}
+
+#kc-form-options .checkbox {
+  margin-top: 0;
+  color: #72767b;
+}
+
+#kc-terms-text {
+  margin-bottom: 20px;
+}
+
+#kc-registration {
+  margin-bottom: 15px;
+}
+
+/* TOTP */
+
+.subtitle {
+  text-align: right;
+  margin-top: 30px;
+  color: #909090;
+}
+
+.required {
+  color: #cb2915;
+}
+
+ol#kc-totp-settings {
+  margin: 0;
+  padding-left: 20px;
+}
+
+ul#kc-totp-supported-apps {
+  margin-bottom: 10px;
+}
+
+#kc-totp-secret-qr-code {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+#kc-totp-secret-key {
+  background-color: #fff;
+  color: #333;
+  font-size: 16px;
+  padding: 10px 0;
+}
+
+/* OAuth */
+
+#kc-oauth h3 {
+  margin-top: 0;
+}
+
+#kc-oauth ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#kc-oauth ul li {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  padding: 10px 0;
+}
+
+#kc-oauth ul li:first-of-type {
+  border-top: 0;
+}
+
+#kc-oauth .kc-role {
+  display: inline-block;
+  width: 50%;
+}
+
+/* Code */
+#kc-code textarea {
+  width: 100%;
+  height: 8em;
+}
+
+/* Social */
+
+#kc-social-providers ul {
+  padding: 0;
+}
+
+#kc-social-providers li {
+  display: block;
+}
+
+#kc-social-providers li:first-of-type {
+  margin-top: 0;
+}
+
+.login-pf-page .btn-primary {
+  margin: 30px 0;
+}
+
+.alert {
+  margin: 20px 0 0 !important;
+}
+
+.instruction {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.forgot-password,
+.back-login {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #3381df;
+  transition: all 0.3s;
+}
+
+.forgot-password:hover,
+.back-login:hover {
+  text-decoration: none;
+  opacity: 0.9;
+  transition: all 0.3s;
+}
+
+#kc-login {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  background: #3381df;
+  border-color: #3381df;
+  border-radius: 4px;
+  color: #fff;
+  transition: 0.3s;
+}
+
+#kc-login:hover {
+  background: #fff;
+  color: #3381df;
+  transition: 0.3s;
+}
+
+.kc-login-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.kc-login-tooltip .kc-tooltip-text {
+  top: -3px;
+  left: 160%;
+  background-color: black;
+  visibility: hidden;
+  color: #fff;
+  min-width: 130px;
+  text-align: center;
+  border-radius: 2px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+  padding: 5px;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+/* Main box login */
+.login-pf-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  min-height: 621px;
+  height: calc(100vh - 10px);
+  padding: 5px 0;
+  box-sizing: content-box;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.login-pf-header {
+  margin: 0 !important;
+}
+
+/* Card box login */
+.login-box {
+  display: flex;
+  width: 1080px !important;
+  height: 621px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.card-pf {
+  display: flex;
+  justify-content: center;
+}
+
+/* Login form */
+.login-form {
+  width: 230px;
+  margin-top: 120px;
+}
+
+/* Card welcome */
+.card-welcome,
+.card-pf {
+  display: flex;
+  width: 540px !important;
+  min-width: 540px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.card-welcome {
+  display: flex;
+  justify-content: center;
+  background-color: #3381df;
+}
+
+.kc-welcome {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.welcome-content {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  z-index: 1000;
+  margin: 120px 70px 0;
+  width: 100%;
+}
+
+.welcome-content > h1 {
+  margin-top: 30px;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.background-welcome {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.top-triangle {
+  display: inline-block;
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 150px;
+  height: 130px;
+  transform: rotate(-47deg);
+  opacity: 0.1;
+  border-radius: 16px;
+  border: solid 20px #fff;
+}
+
+.top-circle {
+  display: inline-block;
+  position: absolute;
+  left: 65%;
+  top: -10%;
+  transform: rotate(-47deg);
+  border-radius: 50%;
+  width: 118px;
+  height: 118px;
+  opacity: 0.1;
+  border: solid 20px #fff;
+}
+
+.right-triangle {
+  display: inline-block;
+  position: absolute;
+  left: 85%;
+  top: 30%;
+  width: 118px;
+  height: 96px;
+  transform: rotate(-71deg);
+  opacity: 0.1;
+  border-radius: 16px;
+  border: solid 10px #fff;
+}
+
+.middle-triangle {
+  display: inline-block;
+  position: absolute;
+  left: 35%;
+  top: 50%;
+  width: 223px;
+  height: 193px;
+  transform: rotate(45deg);
+  opacity: 0.1;
+  border-radius: 16px;
+  border: solid 20px #fff;
+}
+
+.bottom-circle {
+  display: inline-block;
+  position: absolute;
+  left: -45%;
+  top: 50%;
+  width: 324px;
+  height: 324px;
+  opacity: 0.1;
+  border-radius: 50%;
+  border: solid 40px #fff;
+}
+
+.bottom-right-circle {
+  display: inline-block;
+  position: absolute;
+  left: 85%;
+  top: 80%;
+  width: 118px;
+  height: 118px;
+  opacity: 0.1;
+  border: solid 20px #fff;
+  border-radius: 50%;
+}
+
+/* Form title */
+#kc-page-title {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 32px;
+  margin: 0;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* Inputs */
+.form-control {
+  font-family: 'PT Sans', sans-serif;
+  margin-top: 30px;
+  font-style: normal;
+  height: 40px;
+  border: solid 1px #9e9e9e;
+  font-size: 16px;
+  line-height: 40px;
+  border-radius: 4px;
+  box-shadow: none;
+  transition: all 0.3s;
+}
+
+.form-control::placeholder {
+  opacity: 0.5;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.form-control:hover,
+.form-control:visited,
+.form-control:focus {
+  border-color: #9e9e9e;
+  outline: none;
+}
+
+.form-control:focus {
+  box-shadow: 0 2px 5px #9e9e9e;
+  transition: all 0.3s;
+}
+
+#kc-form-buttons,
+.form-group {
+  margin: 0;
+}
+
+/* Show tooltip */
+.kc-login-tooltip:hover .kc-tooltip-text {
+  visibility: visible;
+  opacity: 0.7;
+}
+
+/* Arrow for tooltip */
+.kc-login-tooltip .kc-tooltip-text::after {
+  content: " ";
+  position: absolute;
+  top: 15px;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+
+.zocial,
+a.zocial {
+  width: 100%;
+  font-weight: normal;
+  font-size: 14px;
+  text-shadow: none;
+  border: 0;
+  background: #f5f5f5;
+  color: #72767b;
+  border-radius: 0;
+  white-space: normal;
+}
+
+.zocial::before {
+  border-right: 0;
+  margin-right: 0;
+}
+
+.zocial span::before {
+  padding: 7px 10px;
+  font-size: 14px;
+}
+
+.zocial:hover {
+  background: #ededed !important;
+}
+
+.zocial.facebook,
+.zocial.github,
+.zocial.google,
+.zocial.microsoft,
+.zocial.stackoverflow,
+.zocial.linkedin,
+.zocial.twitter {
+  background-image: none;
+  border: 0;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+/* Copy of zocial windows classes to be used for microsoft's social provider button */
+.zocial.microsoft::before {
+  content: "\f15d";
+}
+
+.zocial.stackoverflow::before {
+  color: inherit;
+}
+
+@media all and (min-width: 768px) {
+  #kc-container-wrapper {
+    position: absolute;
+    width: 100%;
+  }
+
+  .login-pf .container {
+    padding-right: 80px;
+  }
+
+  #kc-locale {
+    position: relative;
+    text-align: right;
+    z-index: 9999;
+  }
+}
+
+@media (max-width: 767px) {
+  #kc-header {
+    padding-left: 15px;
+    padding-right: 15px;
+    float: none;
+    text-align: left;
+  }
+
+  #kc-header-wrapper {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 20px 60px 0 0;
+    color: #72767b;
+    letter-spacing: 0;
+  }
+
+  div.kc-logo-text {
+    margin: 0;
+    width: 150px;
+    height: 32px;
+    background-size: 100%;
+  }
+
+  #kc-form {
+    float: none;
+  }
+
+  #kc-info-wrapper {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 15px;
+    padding-top: 15px;
+    padding-left: 0;
+    padding-right: 15px;
+  }
+
+  #kc-social-providers li {
+    display: block;
+    margin-right: 5px;
+  }
+
+  .login-pf .container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  #kc-locale {
+    position: absolute;
+    width: 200px;
+    top: 20px;
+    right: 20px;
+    text-align: right;
+    z-index: 9999;
+  }
+
+  #kc-logo-wrapper {
+    background-size: 100px 21px;
+    height: 21px;
+    width: 100px;
+    margin: 20px 0 0 20px;
+  }
+}
+
+@media (min-height: 646px) {
+  #kc-container-wrapper {
+    bottom: 12%;
+  }
+}
+
+@media (max-height: 645px) {
+  #kc-container-wrapper {
+    padding-top: 50px;
+    top: 20%;
+  }
+}
+
+.card-pf form.form-actions .btn {
+  float: right;
+  margin-left: 10px;
+}
+
+#kc-content-wrapper .row {
+  margin-left: 0;
+  margin-right: 0;
+}
